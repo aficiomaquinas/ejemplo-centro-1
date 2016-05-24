@@ -1,0 +1,12 @@
+@import "compass"
+@import "funciones"
+
+$color-principal: red
+$box-shadow-color: fade-out(alejar($color-principal, 15deg, 60%, 20%), .4)
+
+.eje-2
+	background-color: $color-principal
+
+	+single-box-shadow(5px, 5px, 20px, 0, rgba(0,0,0,.3))
+	//+single-box-shadow(5px, 5px, 20px, 0, $box-shadow-color)
+.eje-3

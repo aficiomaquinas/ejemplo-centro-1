@@ -1,0 +1,23 @@
+@import "compass"
+
+@function enfriar($color, $amount)
+	$c: #fff
+	@if hue($color) > 60
+		$c: adjust-hue($color, $amount)
+	@else
+		$c: adjust-hue($color, -$amount)
+	@return $c
+
+@function calentar($color, $amount)
+	$c: #fff
+	@if hue($color) > 60
+		$c: adjust-hue($color, -$amount)
+	@else
+		$c: adjust-hue($color, $amount)
+	@return $c
+
+@function alejar($color, $amtTemp, $amtSat, $amtLight)
+	@return enfriar(desaturate(tint($color, $amtLight), $amtSat), $amtTemp)
+
+@function acercar($color, $amtTemp, $amtSat, $amtLight)
+	@return calentar(saturate(shade($color, $amtLight), $amtSat), $amtTemp)
